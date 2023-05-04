@@ -12,20 +12,23 @@
 <body>
     <div class="container">
         <h1>Higher Lower Game</h1>
-        <h4>Guess a number between 1 and 20</h4>
+        <h4>Guess a number between 1 and Max Number
+        </h4>
         <div class="row">
             <div class="col-sm-2">
                 <form>
                     <div class="form-group">
                         <label for="numGuess">Your Guess:</label>
-                        <input class="form-control" id="numGuess" type="text" placeholder="guess" required>
+                        <input class="form-control" id="numGuess" type="text" autofocus required>
                     </div>
-                    <button type="button" onclick="gameStart()" class="btn btn-secondary">Submit</button>
+                    <button type="button" onclick="gameStart()" class="btn btn-secondary"
+                        onkeydown="return ">Submit</button>
+                    <!-- <button type="button" onclick="randomNumber()" class="btn btn-primary">Random Number Test</button> -->
                 </form>
             </div>
         </div>
-        <div>
-            <div id="results" class="col"></div>
+        <div class="row">
+            <p id="feedback" class="col"></p>
         </div>
     </div>
     <script src="scripts.js"></script>
