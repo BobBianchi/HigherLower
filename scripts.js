@@ -1,6 +1,8 @@
 //declarations
 let answer;
 let maxNum;
+let history = [];
+
 //promt to get Max Number
 answer = get_max("Enter the Max Number for our guessing game.");
 
@@ -27,23 +29,34 @@ console.log(`The answer is ${answer}`);
 
 //on button click
 function gameStart() {
-    let guess = Number(document.getElementById("numGuess").value);
+    let guess = Math.round(Number(document.getElementById("numGuess").value));
     let feedback = document.getElementById("feedback");
+    let repeat = false;
 
-    if (guess > maxNum || guess < 1) {
-        feedback.innerHTML = "That number is not in range, try again.";
-    } else if (guess == answer) {
-        feedback.innerHTML = "Correct! Refresh to play again";
-    } else if (guess > answer) {
-        feedback.innerHTML = "Lower, try again.";
-    } else if (guess < answer) {
-        feedback.innerHTML = "Higher, try again.";
-    } else if (isNaN(guess)) {
-        feedback.innerHTML = "That is not a number!";
+    if (history.includes(guess)) {
+        feedback.innerHTML = "That number has already been guessed";
+        repeat = true;
+    } else {
+        if (guess > maxNum || guess < 1) {
+            feedback.innerHTML = "That number is not in range, try again.";
+        } else if (guess == answer) {
+            history.push(guess);
+            feedback.innerHTML = `Correct! It took you ${history.length} time(s) to guess it and your guesses were ${history}. Refresh to play again`;
+        } else if (guess > answer) {
+            feedback.innerHTML = "Lower, try again.";
+            history.push(guess);
+        } else if (guess < answer) {
+            feedback.innerHTML = "Higher, try again.";
+            history.push(guess);
+        } else if (isNaN(guess)) {
+            feedback.innerHTML = "That is not a number!";
+        } else {
+            feedback.innerHTML = "Error";
+        }
+        if (repeat === true) {
+            history.pop();
+            repeat = false;
+        }
+        console.log(`List of guesses: ${history}`);
     }
-}
-
-//initialize arrays
-function init_history() {
-    lorem;
 }

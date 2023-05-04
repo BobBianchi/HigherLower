@@ -5,15 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <title>Higher Lower Exercise</title>
 </head>
 
 <body>
     <div class="container">
         <h1>Higher Lower Game</h1>
-        <h4>Guess a number between 1 and Max Number
-        </h4>
+        <h4>Guess a number between 1 and the maximum</h4>
         <div class="row">
             <div class="col-sm-2">
                 <form>
@@ -22,7 +21,7 @@
                         <input class="form-control" id="numGuess" type="text" autofocus required>
                     </div>
                     <button type="button" onclick="gameStart()" class="btn btn-secondary"
-                        onkeydown="return ">Submit</button>
+                        onkeydown="return ">Guess</button>
                     <!-- <button type="button" onclick="randomNumber()" class="btn btn-primary">Random Number Test</button> -->
                 </form>
             </div>
